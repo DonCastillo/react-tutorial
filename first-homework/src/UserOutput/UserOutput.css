@@ -1,0 +1,10 @@
+.output {
+    margin:10px auto;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family:monospace;
+}
+p {
+    margin:0;
+    font-size:1em;
+}

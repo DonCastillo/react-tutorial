@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Validation = (props) => {
+const Validation = props => {
     const inputTextLength = props.length;
     const minLength = 5;
     let message = '';

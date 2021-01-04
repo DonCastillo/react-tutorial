@@ -9,13 +9,11 @@ class App extends Component {
       { name: 'Max', age: 28 },
       { name: 'Manu', age: 29 },
       { name: 'Stephanie', age: 26 }
-    ]
+    ],
+    showPersons: false
   }
 
   switchNameHandler = (newName) => {
-    //console.log('Was clicked!');
-    // dont do this !
-    //this.state.persons[0].name = "Maximillian";
     this.setState({
       persons: [
         { name: newName, age: 28 },
@@ -31,13 +29,13 @@ class App extends Component {
         { name: 'Max', age: 28 },
         { name: event.target.value, age: 29 },
         { name: 'Stephanie', age: 26 }
-      ],
-      showPersons: false
+      ]
     })
   }
 
   togglePersonsHandler = () => {
-
+    const displayed = this.state.showPersons;
+    this.setState({showPersons: !displayed})
   }
 
 

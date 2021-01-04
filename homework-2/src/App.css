@@ -1,0 +1,25 @@
+.App {
+  background-color:orange;
+  width:100%;
+  padding:2rem 0;
+}
+
+input[type="text"] {
+  margin:0 auto;
+  padding:0.2rem;
+  font-family: monospace;
+  width:30%;
+  min-width:250px;
+  display:block;
+}
+
+p {
+  display:block;
+  margin:0 auto;
+  background-color: pink;
+  text-align: center;
+  margin:5px 0;
+}
+p:first-of-type{
+  margin-top:10px;
+}

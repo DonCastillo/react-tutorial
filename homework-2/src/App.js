@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import Validation from './Validation/Validation';
 
 class App extends React.Component {
 
@@ -9,7 +10,7 @@ class App extends React.Component {
 
   getInputLength = (event) => {
     const textVal = event.target.value;
-    this.setState({inputTextLength: textVal.length})
+    this.setState({inputTextLength: textVal.length});
   }
 
 
@@ -20,6 +21,7 @@ class App extends React.Component {
                onChange={(event) => this.getInputLength(event)} />
         <p>Input text size:</p>
         <p>{this.state.inputTextLength}</p>
+        <Validation length={this.state.inputTextLength}/>
       </div>
     );
   }

@@ -2,9 +2,15 @@ import React, { Component } from 'react';
 import classes from './App.css';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
+import WithClass from '../hoc/WithClass';
 
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    console.log('[App.js] constructor');
+  }
 
   state = {
     persons: [
@@ -13,6 +19,11 @@ class App extends Component {
       { id: 'c', name: 'Stephanie', age: 26 }
     ],
     showPersons: false
+  }
+
+  static getDerivedStateFromProps(props, state){
+    console.log('[App.js] getDerivedStateFromProps', props);
+    return state;
   }
 
 
@@ -43,9 +54,14 @@ class App extends Component {
     this.setState({showPersons: !displayed})
   }
 
+  componentDidMount() {
+    console.log('[App.js] component did mount');
+  }
+
 
 
   render() {
+    console.log('[App.js] render');
     let persons = null;
     if (this.state.showPersons) {
       persons = <Persons 
@@ -55,13 +71,13 @@ class App extends Component {
     }
 
     return (
-        <div className={classes.App}>
-          <Cockpit title={this.props.appTitle}
-                   showPersons={this.state.showPersons}
-                   persons={this.state.persons}
-                   clicked={this.togglePersonsHandler}/>
-          {persons}
-        </div>
+        <WithClass classes={classes.App}>
+            <Cockpit title={this.props.appTitle}
+                    showPersons={this.state.showPersons}
+                    persons={this.state.persons}
+                    clicked={this.togglePersonsHandler}/>
+            {persons}
+        </WithClass>
     );
   }
 }
